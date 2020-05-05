@@ -4,32 +4,34 @@ public class Todo {
    // private static int todocounter=0;
 
     //final int todoid=0;   //final int todoid= Integer.parseInt(null);  TRY THIS
-    private int todoid;
+    final int todoid;
     String description;
     boolean done;
     Person assignee;        //Outer class variable
 
 
     //Constructor
-        public Todo(int todoid, String description, boolean done) {
+        public Todo(int todoid, String description, boolean done, Person assignee) {
 
         this.todoid = todoid;                                       //Error may be its already assigned??
         this.description = description;
-        this.isDone();
-       // this.assignee;
+        this.done =done;
+        this.assignee=assignee;
 
     }
 
 
-
+/*
     public Todo(int todoid, String description) {
         this.todoid = todoid;
         this.description = description;
         this.done = done;
         this.assignee = assignee;
     }
-
-    public Todo() {    }
+*/
+    public Todo(int todoid) {
+        this.todoid = todoid;
+    }
 
     //Getters and Setters
 
@@ -55,7 +57,7 @@ public class Todo {
     }
 
 
-    public boolean isDone() {
+    public boolean getDone() {
         return done;
     }
 
@@ -63,7 +65,7 @@ public class Todo {
         return assignee;
     }
 
-    public void setAssignee(Person assignee) {
+    public void setAssignee() {
 
         this.assignee = assignee;
 

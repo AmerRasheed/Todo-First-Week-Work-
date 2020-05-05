@@ -1,5 +1,6 @@
 package se.lexicon.javagroup30;
 
+import se.lexicon.javagroup30.data.People;
 import se.lexicon.javagroup30.data.PersonSequencer;
 import se.lexicon.javagroup30.data.TodoSequencer;
 import se.lexicon.javagroup30.model.Person;
@@ -17,26 +18,41 @@ public class App {
 
         System.out.print(person1.getPersonId()+ " ");
         System.out.print(person1.getFirstName()+ " ");
-        System.out.print(person1.getLastName()+ "\n");
+        System.out.print(person1.getLastName()+ "\n");    //Output 1 Muhammad Yousuf
 
         System.out.print(person2.getPersonId()+ " ");
         System.out.print(person2.getFirstName()+ " ");
-        System.out.print(person2.getLastName()+ "\n");
+        System.out.print(person2.getLastName()+ "\n");   //2 Muhammad Salah-Ud-Din
 
-        Todo thingTodo1 = new Todo(TodoSequencer.nextTodoId(),"First thing done", true);
-        Todo thingTodo2 = new Todo(TodoSequencer.nextTodoId(),"Second thing done", true);
+        People p= new People();
+        p.addPerson("Rana","Waqas");  // How to call type of object
+/*
+        Todo thingTodo1 = new Todo(TodoSequencer.nextTodoId(),"First thing done", true, person2);
+        Todo thingTodo2 = new Todo(TodoSequencer.nextTodoId(),"Second thing done", true, person2);
 
         System.out.print(thingTodo1.getTodoid()+ " ");
         System.out.print(thingTodo1.getDescription()+ " ");
-        System.out.print(thingTodo1.isDone()+ "\n");
+        System.out.print(thingTodo1.isDone()+ "\n");                //1 First thing done true
 
         System.out.print(thingTodo2.getTodoid()+ " ");
         System.out.print(thingTodo2.getDescription()+ " ");
-        System.out.print(thingTodo2.isDone()+ "\n");
+        System.out.print(thingTodo2.isDone()+ "\n");              //2 Second thing done true
+*/
 
+/*
+People p= new People();
+p.addPerson(new Person(1,"Rana","Waqas"));  // How to call type of object
+        People.addPerson("Haseeb2");
+        People.addPerson("Haseeb3");
+       boolean flag=People.addPerson("Amer");
+        System.out.println(flag);
+        System.out.println(People.personExists("Amer"));
 
-
-
+       People.display();
+        System.out.println(p.size();  // size() is a static BUT it should not be
+        */
+//If I donot want to use static word, the method is not SHOWN in the APP??   e.g. People.
+// How can I get display of the called methods without static word??
     }
 }
 

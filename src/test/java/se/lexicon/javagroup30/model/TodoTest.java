@@ -11,23 +11,26 @@ public class TodoTest {
     private Todo testObjectTodo;
     @Before
     public void setUp() throws Exception {
-        testObjectTodo = new Todo();
-
-          //testObjectTodo.setTodoid(50);
+        testObjectTodo = new Todo(TodoSequencer.nextTodoId(),"Todo description",true, new Person(TodoSequencer.nextTodoId(),"Amer","Rasheed"));
+/*
+        testObjectTodo.setTodoid(50);
        testObjectTodo.setDescription("Todo description");
         testObjectTodo.setDone(true);
-        //testObjectTodo.setAssignee();
+        testObjectTodo.setAssignee();
+    */
     }
+
 
     @Test
     public void testing_whether_Todo_class_fields_are_correct() {
 
-        //assertEquals(50, testObjectTodo.getTodoid());
-       // assertEquals("Todo description", testObjectTodo.getDescription("Todo description"));
-        //assertEquals(1,"Todo description",true,TodoSequencer.nextTodoId(),testObjectTodo.getDescription(),testObjectTodo.getTodoid());
-//assertEquals(1,"Todo description",true,TodoSequencer.nextTodoId(),);
-        //assertEquals(1,"Todo description",TodoSequencer.nextTodoId(),testObjectTodo.getDescription());
-//assertEquals(true,testObjectTodo.getTodoid());
+        //assertEquals(1,"Todo description",true,Muhammad,TodoSequencer.nextTodoId(),testObjectTodo.getDescription(),testObjectTodo.getDone(),testObjectTodo.getAssignee());
+//
 
+assertEquals(1,testObjectTodo.getTodoid());
+assertEquals("Todo description",testObjectTodo.getDescription());
+assertEquals(true, testObjectTodo.getDone());
+assertEquals("Amer", testObjectTodo.getAssignee().getFirstName());
+assertEquals("Rasheed",testObjectTodo.getAssignee().getLastName());
     }
 }

@@ -1,10 +1,8 @@
 package se.lexicon.javagroup30.model;
 
-import org.omg.PortableInterceptor.ServerRequestInfo;
-
 public class Person {
-    private int personId=0;
-    //final int personId = 0;                                  // final was made but with initiallization???
+  //  private int personId=0;
+    final int personId;                                  // final was made but with initiallization???
     String firstName;
     String lastName;
 
@@ -14,16 +12,18 @@ public class Person {
                                                               // Have to check the lecture of Pet when he creates ID
                                                               // and create constructors etc. likewise
 
-   public Person(int personId,String firstName, String lastName)
+    public Person(int personId)
+    {
+        this.personId= personId;
+    }
+   public Person(int personId, String firstName, String lastName)
    {
-       this.personId= personId;
+       this.personId = personId;
        this.firstName = firstName;
        this.lastName = lastName;
    }
 
-    public Person() {
-
-    }
+   // public Person() {    }
 
     // public Person() {   }                  // Bycreating this constructor, we can use both constructors Person(), Person(firstName, lastName) in App and testing
 
@@ -31,7 +31,7 @@ public class Person {
 
 //Getters and Setters
 
-
+                                              // No setter for personId since it is index
     public int getPersonId() {
         return personId;
     }
