@@ -11,7 +11,8 @@ public class Todo {
 
 
     //Constructor
-        public Todo(int todoid, String description, boolean done, Person assignee) {
+        public Todo(int todoid, String description, boolean done, Person assignee) /* parameters being passed including assignee of type PERSON*/
+        {
 
         this.todoid = todoid;                                       //Error may be its already assigned??
         this.description = description;
@@ -32,6 +33,8 @@ public class Todo {
     public Todo(int todoid) {
         this.todoid = todoid;
     }
+
+
 
     //Getters and Setters
 

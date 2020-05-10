@@ -16,6 +16,7 @@ public class Person {
     {
         this.personId= personId;
     }
+
    public Person(int personId, String firstName, String lastName)
    {
        this.personId = personId;
@@ -23,11 +24,7 @@ public class Person {
        this.lastName = lastName;
    }
 
-   // public Person() {    }
-
-    // public Person() {   }                  // Bycreating this constructor, we can use both constructors Person(), Person(firstName, lastName) in App and testing
-
-
+     // public Person() {   }                  // Bycreating this constructor, we can use both constructors Person(), Person(firstName, lastName) in App and testing
 
 //Getters and Setters
 
@@ -35,8 +32,6 @@ public class Person {
     public int getPersonId() {
         return personId;
     }
-
-
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;

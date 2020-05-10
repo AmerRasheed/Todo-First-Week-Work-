@@ -1,104 +1,214 @@
 package se.lexicon.javagroup30;
-
 import se.lexicon.javagroup30.data.People;
 import se.lexicon.javagroup30.data.PersonSequencer;
+import se.lexicon.javagroup30.data.TodoItems;
 import se.lexicon.javagroup30.data.TodoSequencer;
 import se.lexicon.javagroup30.model.Person;
 import se.lexicon.javagroup30.model.Todo;
+import java.util.Arrays;
 
 /**
  * TODO IT Work
- *
  */
 public class App {
     public static void main(String[] args) {
-
-        Person person1 = new Person(PersonSequencer.nextPersonId(), "Muhammad","Yousuf");
+        System.out.println("\n");
+        System.out.println("\n");
+        System.out.println("A single Person                    Ref. Person ");
+        Person person1 = new Person(PersonSequencer.nextPersonId(), "Muhammad", "Yousuf");
         Person person2 = new Person(PersonSequencer.nextPersonId(), "Muhammad", "Salah-Ud-Din");
+        Person person3 = new Person(PersonSequencer.nextPersonId(), "Amer", "Rasheed");
+        Person person4 = new Person(PersonSequencer.nextPersonId(), "Erk", "Svensson");
+        Person person5 = new Person(PersonSequencer.nextPersonId(), "Tobias", "Johnsson");
 
-        System.out.print(person1.getPersonId()+ " ");
-        System.out.print(person1.getFirstName()+ " ");
-        System.out.print(person1.getLastName()+ "\n");    //Output 1 Muhammad Yousuf
+        System.out.print(person1.getPersonId() + " ");
+        System.out.print(person1.getFirstName() + " ");
+        System.out.print(person1.getLastName() + "\n");    //Output 1 Muhammad Yousuf
 
-        System.out.print(person2.getPersonId()+ " ");
-        System.out.print(person2.getFirstName()+ " ");
-        System.out.print(person2.getLastName()+ "\n");   //2 Muhammad Salah-Ud-Din
+        System.out.print(person2.getPersonId() + " ");
+        System.out.print(person2.getFirstName() + " ");
+        System.out.print(person2.getLastName() + "\n");   //2 Muhammad Salah-Ud-Din
 
-        People p= new People();
-        p.addPerson("Rana","Waqas");  // How to call type of object
-/*
-        Todo thingTodo1 = new Todo(TodoSequencer.nextTodoId(),"First thing done", true, person2);
-        Todo thingTodo2 = new Todo(TodoSequencer.nextTodoId(),"Second thing done", true, person2);
+        System.out.print(person3.getPersonId() + " ");
+        System.out.print(person3.getFirstName() + " ");
+        System.out.print(person3.getLastName() + "\n");    //Output 1 Muhammad Yousuf
 
-        System.out.print(thingTodo1.getTodoid()+ " ");
-        System.out.print(thingTodo1.getDescription()+ " ");
-        System.out.print(thingTodo1.isDone()+ "\n");                //1 First thing done true
+        System.out.print(person4.getPersonId() + " ");
+        System.out.print(person4.getFirstName() + " ");
+        System.out.print(person4.getLastName() + "\n");   //2 Muhammad Salah-Ud-Din
 
-        System.out.print(thingTodo2.getTodoid()+ " ");
-        System.out.print(thingTodo2.getDescription()+ " ");
-        System.out.print(thingTodo2.isDone()+ "\n");              //2 Second thing done true
-*/
+        System.out.print(person5.getPersonId() + " ");
+        System.out.print(person5.getFirstName() + " ");
+        System.out.print(person5.getLastName() + "\n");   //2 Muhammad Salah-Ud-Din
 
-/*
-People p= new People();
-p.addPerson(new Person(1,"Rana","Waqas"));  // How to call type of object
-        People.addPerson("Haseeb2");
-        People.addPerson("Haseeb3");
-       boolean flag=People.addPerson("Amer");
-        System.out.println(flag);
-        System.out.println(People.personExists("Amer"));
+        System.out.println("\n");
+        System.out.println("\n");
+        System.out.println("People                    Ref. People (Array of persons ");
+        People p = new People();
+        Person var0 = p.addPerson("Rana", "Waqas");  /*p.addPerson ==== In which person is being called with TWO parameters eftersom addPerson method has two parameters */
+        System.out.print(var0.getPersonId() + " ");
+        System.out.println(var0.getFirstName());
 
-       People.display();
-        System.out.println(p.size();  // size() is a static BUT it should not be
-        */
-//If I donot want to use static word, the method is not SHOWN in the APP??   e.g. People.
-// How can I get display of the called methods without static word??
+
+        System.out.println("Adding Persons to People                    Ref. Q.8 e ");
+        Person var1 = p.addPerson("Mustansar", "Khan");
+
+        System.out.print(var1.getPersonId() + " ");
+        System.out.println(var1.getFirstName());
+
+        Person var2 = p.addPerson("Hamid", "Pia");
+        System.out.print(var2.getPersonId() + " ");
+        System.out.println(var2.getFirstName());
+
+        System.out.println("Size of People array is " + p.size());
+
+        System.out.println("\n");
+        System.out.println("\n");
+        System.out.println("Removing Person                    Ref. Q.11");
+
+        boolean removal = p.remove(8);
+        if (removal)
+
+            System.out.println("The person is successfully removed ");
+        //System.out.println("Size of People array AFTER is "+p.size());
+        System.out.println("\n");
+        System.out.println("\n");
+        System.out.println("Adding more persons to PEOPLE array");
+        Person var3 = p.addPerson("Asad", "Ullah");
+        System.out.print(var3.getPersonId() + " ");
+        System.out.println(var3.getFirstName());
+
+        Person var4 = p.addPerson("Uffe", "Kock");
+        System.out.print(var4.getPersonId() + " ");
+        System.out.println(var4.getFirstName());
+
+        System.out.println("\n");
+        System.out.println("\n");
+        System.out.println("Finding all persons in People                    Ref. Q.8 c");
+        Person[] peopleArray = p.findAll();
+
+        for (int i = 0; i < peopleArray.length; i++) {
+            System.out.print((peopleArray[i].getPersonId()));
+            System.out.print(" " + peopleArray[i].getFirstName());
+            System.out.println(" " + peopleArray[i].getLastName());
+        }
+
+        System.out.println("Size of People array is " + p.size());
+        System.out.println("\n");
+        System.out.println("\n");
+
+        System.out.println("To do Assginees               Ref. TodoItems");
+        TodoItems td = new TodoItems();
+        td.addTodo("Handla", "Willys", "Grån saker", true);
+        td.addTodo("Byta", "Bil dacker", "på helgen", false);
+        td.addTodo("Listen", "Lecture", "Udemi", false);
+
+        System.out.println("Removing TodoItems                                    Ref.Q.11");
+        Todo[] any = td.findByAssignee(3);
+
+        System.out.println("The assignees tasks before removal of an object are    ");
+        if (any != null)
+            for (int i = 0; i < any.length; i++) //Todo-> Person-> fields
+            {
+                System.out.print(any[i].getTodoid()+" ");
+                System.out.print((any[i].getAssignee().getFirstName()) + "              ");
+                System.out.print((any[i].getAssignee().getLastName()) + "                             ");
+                System.out.println((any[i].getDescription()));
+            }
+        System.out.println("\n");
+        System.out.println("The assignees tasks after removal of an object are    ");
+       // System.out.println(td.size());
+        boolean removeTDitem = td.remove(4);
+        if(removeTDitem)
+            System.out.println("The person is successfully removed ");
+        System.out.println("\n");
+        //System.out.println("Size of People array AFTER is "+p.size());
+       // System.out.println(td.size());
+        System.out.println("Addng more TodoItems to the array");
+        td.addTodo("Sluta", "TodoIT", "på helgen", true);
+        td.addTodo("Boka", "Billjet", "Perth", false);
+        td.addTodo("Deliver", "Schedule", "Nästa vecka", true);
+
+
+        Todo[] any1 = td.findByAssignee(3);
+
+        System.out.println("The assignees tasks are    ");
+        if (any1 != null)
+            for (int i = 0; i < any1.length; i++) //Todo-> Person-> fields
+            {
+                System.out.print(any1[i].getTodoid()+" ");
+                System.out.print((any1[i].getAssignee().getFirstName()) + "              ");
+                System.out.print((any1[i].getAssignee().getLastName()) + "                             ");
+                System.out.println((any1[i].getDescription()));
+            }
+        System.out.println("The size of TodoItems array now becomes "+td.size());
+
+        System.out.println("\n");
+        System.out.println("\n");
+        System.out.println("Things to do                   Ref. Todo ");
+
+        //Printing first line of Todo(Things to do)
+        Todo thingTodo1 = new Todo(TodoSequencer.nextTodoId(), "First  task done", true, person1);
+        Todo thingTodo2 = new Todo(TodoSequencer.nextTodoId(), "Second task done", false, person2);
+        Todo thingTodo3 = new Todo(TodoSequencer.nextTodoId(), "Third task done", true, person3);
+        Todo thingTodo4 = new Todo(TodoSequencer.nextTodoId(), "Fourth task done", false, person4);
+
+        System.out.print(thingTodo1.getAssignee().getPersonId() + " ");
+        System.out.print(thingTodo1.getAssignee().getFirstName() + " ");
+        System.out.print(thingTodo1.getAssignee().getLastName() + " ");   //2 Muhammad Salah-Ud-Din
+
+        System.out.print(" (" + thingTodo1.getTodoid() + ") ");
+        System.out.print(thingTodo1.getDescription() + " ");
+        System.out.print(thingTodo1.getDone() + " ");                //1 First thing done true
+
+        System.out.print("(" + thingTodo2.getTodoid() + ") ");
+        System.out.print(thingTodo2.getDescription() + " ");
+        System.out.print(thingTodo2.getDone() + "\n");              //2 Second thing done true
+
+
+        //Printing second line of Todo(Things to do)
+
+        System.out.print(thingTodo2.getAssignee().getPersonId() + " ");
+        System.out.print(thingTodo2.getAssignee().getFirstName() + " ");
+        System.out.print(thingTodo2.getAssignee().getLastName() + " ");   //2 Muhammad Salah-Ud-Din
+
+        System.out.print(" (" + thingTodo2.getTodoid() + ") ");
+        System.out.print(thingTodo2.getDescription() + " ");
+        System.out.print(thingTodo2.getDone() + " ");                //1 First thing done true
+
+        System.out.print("(" + thingTodo1.getTodoid() + ") ");
+        System.out.print(thingTodo1.getDescription() + " ");
+        System.out.print(thingTodo1.getDone() + "\n");              //2 Second thing done true
+
+        //Printing THIRD line of Todo(Things to do)
+        System.out.print(thingTodo3.getAssignee().getPersonId() + " ");
+        System.out.print(thingTodo3.getAssignee().getFirstName() + " ");
+        System.out.print(thingTodo3.getAssignee().getLastName() + " ");   //2 Muhammad Salah-Ud-Din
+
+        System.out.print(" (" + thingTodo3.getTodoid() + ") ");
+        System.out.print(thingTodo3.getDescription() + " ");
+        System.out.print(thingTodo3.getDone() + " ");                //1 First thing done true
+
+        System.out.print("(" + thingTodo1.getTodoid() + ") ");
+        System.out.print(thingTodo1.getDescription() + " ");
+        System.out.print(thingTodo1.getDone() + "\n");              //2 Second thing done true
+
+        //Printing FOURT line of Todo(Things to do)
+
+        System.out.print(thingTodo4.getAssignee().getPersonId() + " ");
+        System.out.print(thingTodo4.getAssignee().getFirstName() + " ");
+        System.out.print(thingTodo4.getAssignee().getLastName() + " ");   //2 Muhammad Salah-Ud-Din
+
+        System.out.print(" (" + thingTodo3.getTodoid() + ") ");
+        System.out.print(thingTodo3.getDescription() + " ");
+        System.out.print(thingTodo3.getDone() + " ");                //1 First thing done true
+
+        System.out.print("(" + thingTodo4.getTodoid() + ") ");
+        System.out.print(thingTodo4.getDescription() + " ");
+        System.out.print(thingTodo4.getDone() + "\n");              //2 Second thing done trueSystem.out.println("\n");
+        System.out.println("\n");
+
+
     }
 }
 
-
-
-  /*
-    //    Person amer = new Person("Usman","Iftikhar");                //If a constructor is called with parameters the error will occur until we create Person CONSTRUCOR without parameters
-      Person amer = new Person();
-          amer.getPersonId();
-        amer.setFirstName("Amer");
-       amer.setLastName("Rasheed");
-
-        Todo todoList = new Todo();
-       // todoList.setTodoid(45);
-        todoList.setDescription("To do IT");
-
-        System.out.println("Todo Id is "+ todoList.getTodoid());
-        System.out.println("explanation is " + todoList.getDescription());
-
-
-        //   todoList.setDescription("Describe");
-     //    todoList.setDone(true);
-      //  todoList.setAssignee(amer);                 // problem is how we can set some value to PERSON class??
-
-        //odoList.assignee.getFirstName();        // We can get todolist.assignee by making assignee PUBLIC in Todo class
-        //Todo. TodoPersonAccess = new Person();    // from net
-
-       // System.out.println("First Name of the person is " + amer.getFirstName());
-       // System.out.println("Last Name of the person is " + amer.getLastName());
-        //  System.out.println("Id is " + amer.getPersonId());
-
-       // System.out.println("explanation is " + todoList.getDescription());              // Not allowing to getdescription as in the case above
-                                                                                        // System.out.println("explanation is" + new Todo());
-                                                                                        // I tried this and it worked mysteriously
-       // System.out.println("Checking job done " + todoList.isDone());
-       // Person avariable = todoList.getAssignee();
-       // System.out.println("Person info is " + todoList.getAssignee());                    // cannot assign value to Person
-                                                                         // FOR THIS, we have to assign value to a variable of type Person and then GET their fields
-      //  System.out.println(avariable.getFirstName());
-       // System.out.println(avariable.getLastName());
-
-    }
-}
-
-
-//When declaring constructor, The values cannot be set.
-//final
-
-*/

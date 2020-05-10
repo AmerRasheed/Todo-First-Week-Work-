@@ -1,5 +1,7 @@
 package se.lexicon.javagroup30.model;
 
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import se.lexicon.javagroup30.data.PersonSequencer;
@@ -27,11 +29,25 @@ public class PersonTest {
     }
 
     @Test                     //For testing Person Class
-    public void testobject_for_Peson_class_That_either_correct_fields() {
+    public void testobject_for_Peson_class_That_either_correct_fieldsare_OK_for_FIRST_ID_incremen() {
         assertEquals(1,testObjectPerson.getPersonId());
         assertEquals("Test", testObjectPerson.getFirstName());
         assertEquals("Test Last Name", testObjectPerson.getLastName());
     }
 
+
+    @Test                     //For testing Person Class
+    public void testobject_for_Peson_class_That_either_correct_fieldsare_OK_for_FIRST_ID_increment_for_Incrementing_Second_Time() {
+        assertEquals(2,testObjectPerson.getPersonId());
+        assertEquals("Test", testObjectPerson.getFirstName());
+        assertEquals("Test Last Name", testObjectPerson.getLastName());
+    }
+
+/*
+    @After
+    public static void afterClass() throws Exception {
+        PersonSequencer.reset();
+    }
+*/
 
 }
